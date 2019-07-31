@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trials</title>
+    </head>
+    <body>
+        <h1>Event bubbling and event capturing</h1>
+        <p>event bubbling : when event  happens on eleemt,its handlers 
+            run on it, then on its parents and so on</p>
+        
+        <form onclick="alert('form')">FORM
+            <div onclick="alert('div')">DIV
+                <p onclick="alert('p')">P</p>
+            </div>
+        </form>
+       
+        <p><pre> capturing: Dom events have 3 phases of event propagation: 
+            capturing phase - event goes down to element
+            target phase - event reaches target element
+            bubbling space = bubbles up
+
+            to get the capturing phase, set it to true when adding event listener
+        </p></pre>
+        <div class="second" >DIV
+            <p>
+                P
+            </p>
+        </div>
+
+        <div>
+            <h2>get jsonp</h2>
+            <p id ="name_json"></p>
+        </div>
+        <script>
+        var elements = document.querySelectorAll(".second");
+        
+        // for(let ele of elements){
+        //     ele.addEventListener('click',(event)=>alert(`capturing${ele.tagName}`),true);
+            
+        //     ele.addEventListener("click", e => alert(`Bubbling: ${ele.tagName}`));
+        // }
+        myFunc = function(obj){
+            document.getElementById("name_json").innerHTML= obj.name;
+        }
+        </script>
+        <script src="https://www.w3schools.com/js/demo_jsonp.php?callback=myFunc"></script>
+    </body>
+</html>
